@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\.idea",
+    "\\backendPartners",
+    "\\backendPartners\\app",
+    "\\backendPartners\\app\\Http",
+    "\\backendPartners\\app\\Http\\Controllers",
+    "\\backendPartners\\app\\Http\\Controllers\\api"
+  ],
+  "SelectedNode": "\\backendPartners\\app\\Http\\Controllers\\api\\CatalogController.php",
+  "PreviewInSolutionExplorer": false
+}
