@@ -116,6 +116,10 @@ class ProductController extends Controller
         return response()->json($products, 200);
     }
 
+
+
+
+
     /**
      * Получение конкретного товара по его ID.
      * Пример запроса:

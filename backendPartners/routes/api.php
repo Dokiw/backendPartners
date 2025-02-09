@@ -41,3 +41,5 @@ Route::put('/catalogs/{id}', [CatalogController::class, 'update']);
 Route::patch('/catalogs/{id}', [CatalogController::class, 'update']);
 
 Route::delete('/catalogs/{id}', [CatalogController::class, 'destroy']);
+
+Route::get('/catalog', [CatalogController::class, 'getBySubName']);

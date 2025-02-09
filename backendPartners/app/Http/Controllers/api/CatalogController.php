@@ -186,4 +186,43 @@ class CatalogController extends Controller
         return response()->json(['message' => 'Каталог удален'], 200);
     }
 
+    /**
+     * Метод для поиска записей каталога по полю sub_name.
+     * Возвращает только поля id и name.
+     *
+     * Пример запроса:
+     *   GET /api/catalogs/search?sub_name=example
+     */
+//    public function searchBySubName(Request $request)
+//    {
+//        // Получаем параметр sub_name из запроса
+//        $subName = $request->query('sub_name');
+//
+//        if (!$subName) {
+//            return response()->json(['error' => 'Параметр sub_name обязателен.'], 400);
+//        }
+//
+//        // Выполняем поиск записей, где sub_name содержит переданное значение (без учета регистра)
+//        $catalogs = Catalog::where('sub_name', 'like', '%' . $subName . '%')
+//            ->select('id', 'name')
+//            ->get();
+//
+//        return response()->json($catalogs, 200);
+//    }
+
+    public function getBySubName(Request $request)
+    {
+        $request->validate([
+            'sub_name' => 'required|string'
+        ]);
+
+        $catalogs = Catalog::where('sub_name', $request->sub_name)
+            ->select('id', 'name')
+            ->get();
+
+        return response()->json($catalogs);
+    }
+
+
+
 }
