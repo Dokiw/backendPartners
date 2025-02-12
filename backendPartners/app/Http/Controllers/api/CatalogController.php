@@ -19,8 +19,6 @@ class CatalogController extends Controller
             'name'              => 'required|string',
             'characters_valid'  => 'required|array',
             'size_visible'      => 'required|boolean',
-            'size'              => 'required|integer',
-            'size_ru'           => 'required|integer',
             'sub_name'          => 'nullable|string'
         ]);
 
@@ -57,7 +55,7 @@ class CatalogController extends Controller
 
         // Создание записи в БД. Поле characters_valid благодаря кастингу автоматически будет сохранено в формате JSON.
         $catalog = Catalog::create($request->only([
-            'name', 'characters_valid', 'size_visible', 'size', 'size_ru', 'sub_name'
+            'name', 'characters_valid', 'size_visible', 'sub_name'
         ]));
 
         return response()->json([
@@ -113,8 +111,6 @@ class CatalogController extends Controller
             'name'             => 'sometimes|required|string',
             'characters_valid' => 'sometimes|required|array',
             'size_visible'     => 'sometimes|required|boolean',
-            'size'             => 'sometimes|required|integer',
-            'size_ru'          => 'sometimes|required|integer',
             'sub_name'         => 'sometimes|nullable|string'
         ]);
 
@@ -155,12 +151,6 @@ class CatalogController extends Controller
         }
         if ($request->has('size_visible')) {
             $catalog->size_visible = $request->size_visible;
-        }
-        if ($request->has('size')) {
-            $catalog->size = $request->size;
-        }
-        if ($request->has('size_ru')) {
-            $catalog->size_ru = $request->size_ru;
         }
         if ($request->has('sub_name')) {
             $catalog->sub_name = $request->sub_name;
@@ -222,6 +212,8 @@ class CatalogController extends Controller
 
         return response()->json($catalogs);
     }
+
+
 
 
 

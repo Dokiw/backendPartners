@@ -268,4 +268,20 @@ class ProductController extends Controller
             'product' => $product
         ], 200);
     }
+
+    public function IndexForWeb(Request $request)
+    {
+        // Получаем лимит записей на страницу (по умолчанию 20)
+        $limit = $request->input('limit', 5);
+
+        // Выполняем запрос с пагинацией
+        $products = Product::paginate($limit);
+
+        // Для веб-приложения (возврат представления)
+        // return view('products.index', compact('products'));
+
+        // Для API (возврат данных в JSON)
+        return response()->json($products);
+    }
+
 }

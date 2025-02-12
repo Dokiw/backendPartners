@@ -17,8 +17,6 @@ class Catalog extends Model
         'name',
         'characters_valid',
         'size_visible',
-        'size',
-        'size_ru',
         'sub_name'
     ];
 

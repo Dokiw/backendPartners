@@ -18,8 +18,6 @@ return new class extends Migration
             $table->text('name');
             $table->json('characters_valid');
             $table->boolean('size_visible');
-            $table->integer('size');
-            $table->integer('size_ru');
             $table->text('sub_name')->nullable();
         });
 
